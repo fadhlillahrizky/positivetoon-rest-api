@@ -8,6 +8,7 @@ const port = 5000
 app.use(bodyParser.json())
 
 //controllers
+const IsConnectController = require('./controllers/isConnect')
 const AuthController = require('./controllers/auth')
 const webtoonController = require('./controllers/webtoons')
 const episodeController = require('./controllers/episodes')
@@ -18,6 +19,7 @@ const { authenticated } = require('./middleware')
 
 app.group("/api/v1", (router) => {
 
+    router.post('/', IsConnectController.isConnect)
     //auth API
     router.post('/login', AuthController.login)
     router.post('/register', AuthController.register)
