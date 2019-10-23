@@ -20,7 +20,9 @@ module.exports = {
         references: {
             model: 'webtoons',
             key: 'id'
-        },    
+        },       
+        onUpdate: 'cascade',
+        onDelete: 'cascade'    
       },
       episodeId: {
         type: Sequelize.INTEGER,
@@ -28,7 +30,9 @@ module.exports = {
         references: {
             model: 'episodes',
             key: 'id'
-        },    
+        },       
+        onUpdate: 'cascade',
+        onDelete: 'cascade'    
       },
       createdAt: {
         allowNull: false,

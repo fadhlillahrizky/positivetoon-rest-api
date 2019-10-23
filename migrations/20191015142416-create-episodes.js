@@ -20,7 +20,9 @@ module.exports = {
         references: {
             model: 'webtoons',
             key: 'id'
-        },    
+        },       
+        onUpdate: 'cascade',
+        onDelete: 'cascade'    
       },
       createdAt: {
         allowNull: false,
