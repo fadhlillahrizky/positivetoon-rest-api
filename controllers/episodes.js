@@ -71,11 +71,7 @@ exports.delete = (req, res) => {
         where:{
             webtoonId: req.params.webtoon_id, 
             id: req.params.episode_id
-        },
-        include: [{ 
-            model: Webtoon,
-            as: "webtoon_id",
-        }]
+        }
     }).then(result=> {
         res.send({
             message: "success",
