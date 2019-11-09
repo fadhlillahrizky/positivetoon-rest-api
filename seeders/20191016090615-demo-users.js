@@ -6,7 +6,7 @@ module.exports = {
       {
         email: 'admin@gmail.com',
         password: 'rahasia',
-        name: 'Ademin'
+        name: 'Aditiya'
       },
       {
         email: 'jhon.doe@gmail.com',

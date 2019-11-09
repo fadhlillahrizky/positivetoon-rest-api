@@ -10,6 +10,7 @@ app.use(bodyParser.json())
 //controllers
 const IsConnectController = require('./controllers/isConnect')
 const AuthController = require('./controllers/auth')
+const FavoriteController = require('./controllers/favorites')
 const webtoonController = require('./controllers/webtoons')
 const episodeController = require('./controllers/episodes')
 const imageController = require('./controllers/images')
@@ -45,6 +46,11 @@ app.group("/api/v1", (router) => {
 
     // for creator
     router.group('/user',(creator) => {
+        //favorite API
+        creator.get('/:user_id/favorites', authenticated, FavoriteController.index)    
+        creator.post('/:user_id/favorite', authenticated, FavoriteController.addFavorite)    
+        creator.delete('/:user_id/favorite/:webtoon_id', authenticated, FavoriteController.unFavorite)
+        
 
         //webtoon API
         creator.get('/:user_id/webtoons', authenticated, webtoonController.index)    
@@ -74,5 +80,5 @@ app.group("/api/v1", (router) => {
 })
 
 
-app.listen(process.env.PORT||9876, function(){ console.log(`Listening on port ${port}!`)})
-//app.listen(port, () => console.log(`Listening on port ${port}!`))
+//app.listen(process.env.PORT||9876, function(){ console.log(`Listening on port ${port}!`)})
+app.listen(port, () => console.log(`Listening on port ${port}!`))

@@ -12,6 +12,22 @@ module.exports = {
         id_webtoon: 2
       },
       {
+        id_user: 1,
+        id_webtoon: 3
+      },
+      {
+        id_user: 1,
+        id_webtoon: 4
+      },
+      {
+        id_user: 2,
+        id_webtoon: 5
+      },
+      {
+        id_user: 2,
+        id_webtoon: 3
+      },
+      {
         id_user: 2,
         id_webtoon: 2
       }
