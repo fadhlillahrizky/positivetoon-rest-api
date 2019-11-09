@@ -9,7 +9,6 @@ exports.index = (req, res) => {
     if (req.params.user_id != undefined) {
         user_id = { create_by: req.params.user_id }
     } else { user_id = {} }
-
     Webtoon.findAll({
         where:
             user_id,
@@ -18,7 +17,14 @@ exports.index = (req, res) => {
             model: User,
             as: "Owner",
             attributes: ['name'],
-        }]
+        }],
+        attributes: [
+            'title',
+            'genre',
+            'image',
+            'isFavorite',
+            ['image', 'uri']
+        ]
     }).then(result => { console.log(req.params.user_id), res.send(result) })
         .catch(err => console.log(err))
 }
@@ -56,12 +62,12 @@ exports.search = async (req, res) => {
 }
 
 exports.store = (req, res) => {
-    const title= req.body.title
-    const genre= req.body.genre
-    const image= req.body.image
-    const isFavorite= req.body.isFavorite
-    const favorite_count= req.body.favorite_count
-    const create_by= req.params.user_id
+    const title = req.body.title
+    const genre = req.body.genre
+    const image = req.body.image
+    const isFavorite = req.body.isFavorite
+    const favorite_count = req.body.favorite_count
+    const create_by = req.params.user_id
     if (req.params.user_id != undefined) {
         user_id = {
             create_by: req.params.user_id
@@ -74,7 +80,7 @@ exports.store = (req, res) => {
         isFavorite,
         favorite_count,
         create_by
-        }).then(result => {
+    }).then(result => {
         res.send({
             message: "success",
             result

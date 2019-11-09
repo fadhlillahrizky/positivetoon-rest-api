@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     genre: DataTypes.STRING,
     image: DataTypes.STRING,
     isFavorite: DataTypes.INTEGER,
-    favorite_count: DataTypes.INTEGER,
     create_by: DataTypes.INTEGER
   }, {});
   webtoons.associate = function(models) {

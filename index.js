@@ -18,9 +18,9 @@ const imageController = require('./controllers/images')
 //middlewares
 const { authenticated } = require('./middleware')
 
+app.get('/', IsConnectController.isConnect)
 app.group("/api/v1", (router) => {
 
-    router.post('/', IsConnectController.isConnect)
     //auth API
     router.post('/login', AuthController.login)
     router.post('/register', AuthController.register)
@@ -80,5 +80,5 @@ app.group("/api/v1", (router) => {
 })
 
 
-app.listen(process.env.PORT||9876, function(){ console.log(`Listening on port ${port}!`)})
-//app.listen(port, () => console.log(`Listening on port ${port}!`))
+//app.listen(process.env.PORT||9876, function(){ console.log(`Listening on port ${port}!`)})
+app.listen(port, () => console.log(`Listening on port ${port}!`))
