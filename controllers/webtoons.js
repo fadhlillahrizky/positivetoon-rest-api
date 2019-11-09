@@ -19,6 +19,7 @@ exports.index = (req, res) => {
             attributes: ['name'],
         }],
         attributes: [
+            'id',
             'title',
             'genre',
             'image',

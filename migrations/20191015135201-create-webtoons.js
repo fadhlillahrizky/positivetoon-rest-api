@@ -17,9 +17,6 @@ module.exports = {
       image: {
         type: Sequelize.STRING
       },
-      isFavorite: {
-        type: Sequelize.INTEGER
-      },
       favorite_count: {
         type: Sequelize.INTEGER
       },
