@@ -1,11 +1,16 @@
 const models = require('../models')
 const Favorite = models.favorites
+const Webtoon = models.webtoons
 
 exports.index = (req, res) => {
     Favorite.findAll({
         where: {
             id_user: req.params.user_id,
-        }
+        },
+        include: [{
+            model: Webtoon,
+            as: "webtoon_id"
+        }],
     }).then(result => res.send(result))
         .catch(err => console.log(err))
 }
