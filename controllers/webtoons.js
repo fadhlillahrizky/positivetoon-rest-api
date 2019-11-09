@@ -23,7 +23,7 @@ exports.index = (req, res) => {
             'genre',
             'image',
             'isFavorite',
-            ['image', 'uri']
+            ['image', 'url']
         ]
     }).then(result => { console.log(req.params.user_id), res.send(result) })
         .catch(err => console.log(err))
